@@ -64,5 +64,5 @@ Run:
 ## License
 **MIT**
 ## TODO
-- Add licensing options
+- ~~Add licensing options~~
 - Python 3 version
