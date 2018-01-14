@@ -3,7 +3,7 @@
 # filename          : header_test_8.py
 # description  : Generates a header like this one
 # author            : dad2jrn
-# email             : 
+# email             :
 # date              : 20180113
 # version           : 0.12
 # usage             : python header_test_8.py
@@ -89,8 +89,8 @@ def user_input():
     global div
     # Get some input from the user
     descrpt = raw_input("Enter a description of your script: ")
-    name = raw_input("Enter your  name: ")
-    email = raw_input("Enter your   email: ")
+    name = raw_input("Enter your name: ")
+    email = raw_input("Enter your email: ")
     ver = raw_input("Enter the version number (ex. 0.0.1): ")
     div = "======================================="
     gen_header()
@@ -114,18 +114,18 @@ def gen_header():
         filename.write('#!/usr/bin/env zsh')
 
     # Continue with the rest of the header
-    filename.write('\n# filename\t\t\t:' + title)
-    filename.write('\n# description\t:' + descrpt)
-    filename.write('\n# author\t\t\t:' + name)
-    filename.write('\n# email\t\t\t:' + email)
-    filename.write('\n# date\t\t\t:' + date)
-    filename.write('\n# version\t\t:' + ver)
+    filename.write('\n# filename            : ' + title)
+    filename.write('\n# description    : ' + descrpt)
+    filename.write('\n# author              : ' + name)
+    filename.write('\n# email               : ' + email)
+    filename.write('\n# date                : ' + date)
+    filename.write('\n# version             : ' + ver)
     if my_header == 'python':
-        filename.write('\n# usage\t\t\t:' + 'python ' + title)
+        filename.write('\n# usage               : ' + 'python ' + title)
     else:
-        filename.write('\n# usage\t\t\t:' + './' + title)
-    filename.write('\n# notes\t\t\t:')
-    filename.write('\n# python_version\t: ' + py_ver)
+        filename.write('\n# usage               : ' + './' + title)
+    filename.write('\n# notes               : ')
+    filename.write('\n# python_version      : ' + py_ver)
     filename.write('\n#' + div * 2 + '\n')
     filename.write('\n')
     filename.write('\n')
