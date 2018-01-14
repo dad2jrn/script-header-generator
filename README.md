@@ -1,3 +1,6 @@
+[![license](https://img.shields.io/badge/license-GPL%20(%3E%3D3)-blue.svg)](https://opensource.org/licenses/gpl-license)  [![python version](https://img.shields.io/badge/python-2.7.13-red.svg)](https://www.python.org/downloads/release/python-2713/)
+
+
 # Script Header Generator
 Generates a header section for python and shell scripts
 
