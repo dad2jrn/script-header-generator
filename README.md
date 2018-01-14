@@ -1,7 +1,7 @@
 # Script Header Generator
 Generates a header section for python and shell scripts
 
-*PYTHON HEADER*
+**PYTHON HEADER**
 ```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
@@ -16,7 +16,7 @@ Generates a header section for python and shell scripts
 # py version        : 2.7.13
 #==============================================================================
 ```
-*BASH HEAEDER*
+**BASH HEAEDER**
 ```bash
 #!/usr/bin/env bash
 # filename          : header_test_8.py
@@ -30,7 +30,7 @@ Generates a header section for python and shell scripts
 # py version        : 2.7.13
 #==============================================================================
 ```
-*ZSH HEADER*
+**ZSH HEADER**
 ```bash
 #!/usr/bin/env zsh
 # -*- coding: utf-8 -*-
@@ -48,3 +48,5 @@ Generates a header section for python and shell scripts
 ## Requirements
 This script requires Python 2.7.  It will not run under Python 3.
 
+## Install
+Download the file h_gen.py and run `python h_gen.py`
