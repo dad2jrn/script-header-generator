@@ -38,11 +38,11 @@ def main():
     menu['3'] = "ZSH Header"
     menu['4'] = "Exit"
     while True:
-        options=menu.keys()
+        options = menu.keys()
         options.sort()
         for j in options:
             print j, menu[j]
-        selection=raw_input('Please Select Header Type: ')
+        selection = raw_input('Please Select Header Type: ')
         if selection == '1':
             my_header = "python"
             gen_title()
@@ -56,6 +56,7 @@ def main():
             sys.exit('Exiting')
         else:
             print "Unknown Option Selected!"
+            main()
 
 def gen_title():
     """Generates the  title
@@ -78,11 +79,65 @@ def gen_title():
     if exists(title):
         print "\nA script with this  name already exists."
         exit(1)
-    user_input()
+    select_license()
+
+def select_license():
+    """Choose the license type
+    """
+    os.system("clear")
+    global my_license
+    menu = {}
+    menu['1'] = "Apache-2.0"
+    menu['2'] = "BSD 3-Clause \"New\" or \"Revised\" license"
+    menu['3'] = "BSD 2-Clause \"Simplified\" or \"FreeBSD\" license"
+    menu['4'] = "MIT license"
+    menu['5'] = "GNU General Public License (GPL)"
+    menu['6'] = "GNU Lesser General Public License (LGPL)"
+    menu['7'] = "Mozilla Public License 2.0"
+    menu['8'] = "Common Development and Distribution License"
+    menu['9'] = "None"
+    while True:
+        options = menu.keys()
+        options.sort()
+        for l in options:
+            print l, menu[l]
+        print "\nFor more info, visit: https://opensource.org/licenses"
+        selection = raw_input('Please Select The License: ')
+        if selection == '1':
+            my_license = "Apache-2.0"
+            user_input()
+        elif selection == '2':
+            my_license = "BSD-3-Clause"
+            user_input()
+        elif selection == '3':
+            my_license = "BSD-2-Clause"
+            user_input()
+        elif selection == '4':
+            my_license = "MIT"
+            user_input()
+        elif selection == '5':
+            my_license = "GPL-3.0 or any later version"
+            user_input()
+        elif selection == '6':
+            my_license = "LGPL-3.0"
+            user_input()
+        elif selection == '7':
+            my_license = "MPL-2.0"
+            user_input()
+        elif selection == '8':
+            my_license = "CDDL-1.0"
+            user_input()
+        elif selection == '9':
+            my_license = "No License"
+            user_input()
+        else:
+            print "Unknown Option Selected!"
+            select_license()
 
 def user_input():
     """Get basic user info for header
     """
+    os.system("clear")
     global descrpt
     global name
     global email
@@ -103,7 +158,7 @@ def gen_header():
     filename = open( title, 'w')
 
     # Set the date automatically.
-    date = strftime("%Y%m%d")
+    date = strftime("%Y/%m/%d")
 
     # Write the data to the file.
     if my_header == "python":
@@ -115,19 +170,46 @@ def gen_header():
         filename.write('#!/usr/bin/env zsh')
 
     # Continue with the rest of the header
-    filename.write('\n# filename            : ' + title)
-    filename.write('\n# description    : ' + descrpt)
-    filename.write('\n# author              : ' + name)
-    filename.write('\n# email               : ' + email)
-    filename.write('\n# date                : ' + date)
-    filename.write('\n# version             : ' + ver)
+    filename.write('\n#filename            : ' + title)
+    filename.write('\n#description    : ' + descrpt)
+    filename.write('\n#author              : ' + name)
+    filename.write('\n#email               : ' + email)
+    filename.write('\n#date                : ' + date)
+    filename.write('\n#version             : ' + ver)
     if my_header == 'python':
-        filename.write('\n# usage               : ' + 'python ' + title)
+        filename.write('\n#usage               : ' + '$ python ' + title)
     else:
-        filename.write('\n# usage               : ' + './' + title)
-    filename.write('\n# notes               : ')
-    filename.write('\n# python_version      : ' + py_ver)
+        filename.write('\n#usage               : ' + '$ ./' + title)
+    filename.write('\n#notes               : ')
+    filename.write('\n#license             : ' + my_license)
+    if my_header == 'python':
+        filename.write('\n#python_version      : ' + py_ver)
     filename.write('\n#' + div * 2 + '\n')
+    filename.write('\n')
+    if my_header == 'python':
+        filename.write('\n\"\"\"Example Google style docstrings.')
+        filename.write('\n')
+        filename.write('\nThis module demonstrates documentation as specified by the \"Google Python')
+        filename.write('\nStyle Guide\"_. Docstrings may extend over multiple lines. Sections are created')
+        filename.write('\nwith a section header and a colon followed by a block of indented text.')
+        filename.write('\n')
+        filename.write('\nExample:')
+        filename.write('\n\t\tExamples can be given using either the ``Example`` or ``Examples``')
+        filename.write('\n\t\tsections. Sections support any reStructuredText formatting, including')
+        filename.write('\n\t\tliteral blocks::')
+        filename.write('\n')
+        filename.write('\n\t\t\t\t$ python example_google.py')
+        filename.write('\n')
+        filename.write('\nSection breaks are created by resuming unindented text. Section breaks')
+        filename.write('\nare also implicitly created anytime a new section starts.')
+        filename.write('\n')
+        filename.write('\nTodo:')
+        filename.write('\n\t\t* For module TODOs')
+        filename.write('\n\t\t* You have to also use ``sphinx.ext.todo`` extension')
+        filename.write('\n')
+        filename.write('\n.. _Google Python Style Guide:')
+        filename.write('\nhttp://google.github.io/styleguide/pyguide.html')
+        filename.write('\n\"\"\"')
     filename.write('\n')
     filename.write('\n')
 
@@ -153,7 +235,7 @@ def select_editor():
         options.sort()
         for i in options:
             print i, menu[i]
-        selection = raw_input("Please choose your editor:")
+        selection = raw_input("Please Choose Your Editor:")
         if selection == '1':
             os.system("vim +12 " + title)
             exit()
