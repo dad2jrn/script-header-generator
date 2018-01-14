@@ -51,11 +51,16 @@ Generates a header section for python and shell scripts
 This script requires Python 2.7.  It will not run under Python 3.
 
 ## Install
-Download the file `h_gen.py` and run:
+```
+curl -O https://raw.githubusercontent.com/dad2jrn/script-header-generator/master/h_gen.py
+```
+## Usage
+Run:
 ```bash
 > python h_gen.py
 ```
-
+## License
+**MIT**
 ## TODO
 - Add licensing options
 - Python 3 version
