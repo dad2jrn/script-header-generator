@@ -252,5 +252,5 @@ def select_editor():
             sys.exit("Exiting")
         else:
             print "Invalid Option Selected!"
-
-main()
+if __name__ == "__main__":
+    main()
