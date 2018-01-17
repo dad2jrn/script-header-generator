@@ -12,6 +12,16 @@
 # py version        : 2.7.13
 #==============================================================================
 
+"""Header Generator Script.
+
+This script generates a standard header based on the user's choices and inputs.  It will generate
+a header for python and shell scripts.
+
+Example:
+                To use this script, one only needs to run itin the command line like so::
+
+                                $ python example_google.py
+"""
 # Import the modules needed to run this script.
 from os.path import exists
 from time import strftime
