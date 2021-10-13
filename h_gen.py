@@ -40,7 +40,7 @@ for i in version:
 def main():
     """main menu
     """
-    os.system("clear")
+    os.system("cls") if os.name == "nt" else os.system("clear")
     global my_header
     menu = {}
     menu['1'] = "Python Header"
@@ -49,10 +49,9 @@ def main():
     menu['4'] = "Exit"
     while True:
         options = menu.keys()
-        options.sort()
         for j in options:
-            print j, menu[j]
-        selection = raw_input('Please Select Header Type: ')
+            print(j, menu[j])
+        selection = input('Please Select Header Type: ')
         if selection == '1':
             my_header = "python"
             gen_title()
@@ -65,16 +64,16 @@ def main():
         elif selection == '4':
             sys.exit('Exiting')
         else:
-            print "Unknown Option Selected!"
+            print("Unknown Option Selected!")
             main()
 
 def gen_title():
     """Generates the  title
     """
     global title
-    os.system("clear")
+    os.system("cls") if os.name == "nt" else os.system("clear")
     # Get the title of the script which is used to generate the filename
-    title = raw_input("Enter a  title for your script: ")
+    title = input("Enter a  title for your script: ")
     # Add .py to the end of the filename.
     if my_header == "python":
         title = title + ".py"
@@ -87,14 +86,14 @@ def gen_title():
     title = title.replace(' ', '_')
     # Check to see if the filename exists to not overwrite it.
     if exists(title):
-        print "\nA script with this  name already exists."
+        print("\nA script with this  name already exists.")
         exit(1)
     select_license()
 
 def select_license():
     """Choose the license type
     """
-    os.system("clear")
+    os.system("cls") if os.name == "nt" else os.system("clear")
     global my_license
     menu = {}
     menu['1'] = "Apache-2.0"
@@ -108,11 +107,10 @@ def select_license():
     menu['9'] = "None"
     while True:
         options = menu.keys()
-        options.sort()
         for l in options:
-            print l, menu[l]
-        print "\nFor more info, visit: https://opensource.org/licenses"
-        selection = raw_input('Please Select The License: ')
+            print(l, menu[l])
+        print("\nFor more info, visit: https://opensource.org/licenses")
+        selection = input('Please Select The License: ')
         if selection == '1':
             my_license = "Apache-2.0"
             user_input()
@@ -141,23 +139,23 @@ def select_license():
             my_license = "No License"
             user_input()
         else:
-            print "Unknown Option Selected!"
+            print("Unknown Option Selected!")
             select_license()
 
 def user_input():
     """Get basic user info for header
     """
-    os.system("clear")
+    os.system("cls") if os.name == "nt" else os.system("clear")
     global descrpt
     global name
     global email
     global ver
     global div
     # Get some input from the user
-    descrpt = raw_input("Enter a description of your script: ")
-    name = raw_input("Enter your name: ")
-    email = raw_input("Enter your email: ")
-    ver = raw_input("Enter the version number (ex. 0.0.1): ")
+    descrpt = input("Enter a description of your script: ")
+    name = input("Enter your name: ")
+    email = input("Enter your email: ")
+    ver = input("Enter the version number (ex. 0.0.1): ")
     div = "======================================="
     gen_header()
 
@@ -227,8 +225,8 @@ def gen_header():
     filename.close()
 
     # Clear the screen. This line of code will not work on Windows.
-    os.system("clear")
-    select_editor()
+    os.system("cls") if os.name == "nt" else os.system("clear")
+    select_editor() if os.name != "nt" else sys.exit("Exiting")
 
 def select_editor():
     """Selects the editor
@@ -244,8 +242,8 @@ def select_editor():
         options = menu.keys()
         options.sort()
         for i in options:
-            print i, menu[i]
-        selection = raw_input("Please Choose Your Editor:")
+            print(i, menu[i])
+        selection = input("Please Choose Your Editor:")
         if selection == '1':
             os.system("vim +12 " + title)
             exit()
@@ -261,6 +259,6 @@ def select_editor():
         elif selection == '5':
             sys.exit("Exiting")
         else:
-            print "Invalid Option Selected!"
+            print("Invalid Option Selected!")
 if __name__ == "__main__":
     main()
