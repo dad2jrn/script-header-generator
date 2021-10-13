@@ -1,4 +1,4 @@
-[![license](https://img.shields.io/badge/license-GPL%20(%3E%3D3)-blue.svg)](https://opensource.org/licenses/gpl-license)  [![python version](https://img.shields.io/badge/python-2.7.13-red.svg)](https://www.python.org/downloads/release/python-2713/)
+[![license](https://img.shields.io/badge/license-GPL%20(%3E%3D3)-blue.svg)](https://opensource.org/licenses/gpl-license)  [![python version](https://img.shields.io/badge/python-3.9.2-red.svg)](https://www.python.org/downloads/release/python-392/)
 
 
 # Script Header Generator
@@ -89,4 +89,4 @@ Run:
 **MIT**
 ## TODO
 - ~~Add licensing options~~
-- Python 3 version
+- ~~Python 3 version~~
